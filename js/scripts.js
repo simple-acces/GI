@@ -129,7 +129,7 @@
                 action = $el.attr( 'action' );
             $alert.removeClass( 'alert-danger alert-success' );
             $alert.html( '' );
-            
+
             if (!$el.find('input#name').val() || !$el.find('input#email').val() || !$el.find('input#subject').val() || !$el.find('textarea#comments').val()) {
                 $alert.html( 'Les champs marqués d\'une étoile sont requis' );
                 $alert.addClass( 'alert-danger' ).fadeIn( 500 );
@@ -202,5 +202,37 @@
         $('#loader, .spinner').css('display', 'block')
         setTimeout(done, 500)
     }
+
+    /* LA SALLE PHOTO */
+    var update_photo = function(index) {
+        // get index
+        var old = $('#lasalle_photo .main_photo img.current')
+        index = index || (index === 0 ? index : old.index() + 1)
+
+        if (index > $('#lasalle_photo .main_photo img').length - 1) {
+            index = 0
+        }
+        // reset current
+        $('#lasalle_photo .current').removeClass('current')
+
+        // get new one
+        var current = $($('#lasalle_photo .main_photo img').get(index))
+        var current_min = $($('#lasalle_photo .min_photo img').get(index))
+        var current_title = $($('#lasalle_photo .title_photo div').get(index))
+
+        // set new as current
+        current.addClass('current')
+        current_min.addClass('current')
+        current_title.addClass('current')
+    }
+    var lasalle_inter = setInterval(update_photo, 8000)
+
+    $('#lasalle_photo .min_photo img').click(function() {
+        update_photo($(this).index())
+        clearInterval(lasalle_inter)
+        lasalle_inter = setInterval(update_photo, 8000)
+    })
+
+    update_photo(0)
 
 })(jQuery);

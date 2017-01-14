@@ -5,7 +5,7 @@
     <style type="text/css">
         body {
             margin: -10px 0;
-            overflow: hidden;
+            overflow-y: scroll;;
         }
         #fb_post_wrapper {
             text-align: center;
@@ -13,6 +13,18 @@
         .fb-post {
             margin: 10px auto;
         }
+        /* scrollbar fix for mac os */
+        ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0,0,0,.5);
+            -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+        }
+        /* scrollbar fix for mac os */
     </style>
 </head>
 <body>
@@ -33,18 +45,27 @@
              * APPEND POST
              */
             var ids, post_url;
-            var appendPost = function(url) {
-                var width = $(container).width() > 750 ? 750 : $(container).width();
-                var dom = document.createElement('div');
-                dom.className = 'fb-post';
-                dom.setAttribute('data-href', url);
-                dom.setAttribute('data-width', width)
+            var postReady,fbReady, domReady;
+            var appendPost = function(url, count) {
+                if ($(container).width()) {
+                    var width = $(container).width() > 750 ? 750 : $(container).width();
+                    var dom = document.createElement('div');
+                    dom.className = 'fb-post';
+                    dom.setAttribute('data-href', url);
+                    dom.setAttribute('data-width', width)
 
-                if (width > 750) {
-                    $(parent.document).find('iframe.' + pid + nbr).css('width', width);
+                    if (width > 750) {
+                        $(parent.document).find('iframe.' + pid + nbr).css('width', width);
+                    }
+
+                    container.appendChild(dom);
+                    if (count === 1) {
+                        domReady = true
+                        fbInit()
+                    }
+                } else {
+                    setTimeout(appendPost.bind(this, url, count), 500)
                 }
-
-                container.appendChild(dom);
             };
 
             /**
@@ -52,10 +73,12 @@
              */
             var previous_height;
             var resize = function() {
-                var current_height = container.offsetHeight
-                if (previous_height !== current_height) {
-                    $(parent.document).find('iframe.' + pid + nbr).css('height', container.offsetHeight + 'px')
-                    previous_height = current_height
+                if ($('.fb-post').length && $('.fb-post').get(0).offsetHeight) {
+                    var current_height = $('.fb-post').get(0).offsetHeight
+                    if (previous_height !== current_height) {
+                        $(parent.document).find('iframe.' + pid + nbr).css('height', current_height + 'px')
+                        previous_height = current_height
+                    }
                 }
             }
             window.addEventListener('resize', resize)
@@ -63,23 +86,23 @@
             /**
              * Facebook SDK async callback
              */
-            var postReady,fbReady;
+
             var fbInit = function() {
-                FB.init({
-                    xfbml      : true,
-                    version    : 'v2.5'
-                })
-                var inter = setInterval(function() {
-                    if ($('.fb-post').length === $('[fb-xfbml-state="rendered"]').length) {
-                        resize();
-                    }
-                }, 500);
+                if (fbReady && postReady && domReady) {
+                    FB.init({
+                        xfbml      : true,
+                        version    : 'v2.5'
+                    })
+                    var inter = setInterval(function() {
+                        if ($('.fb-post').length === $('[fb-xfbml-state="rendered"]').length) {
+                            resize();
+                        }
+                    }, 500);
+                }
             }
             window.fbAsyncInit = function() {
                 fbReady = true
-                if (postReady) {
-                    fbInit()
-                }
+                fbInit()
             }
 
             /**
@@ -90,14 +113,12 @@
                     if (count) {
                         ids = post_id.split('_');
                         post_url = 'https://www.facebook.com/' + ids[0] + '/posts/' + ids[1];
-                        appendPost(post_url);
+                        appendPost(post_url, count);
                         count--
                     }
                 })
                 postReady = true
-                if (fbReady) {
-                    fbInit()
-                }
+                fbInit()
             })
         }
 

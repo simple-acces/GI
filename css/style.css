@@ -107,7 +107,7 @@ a:focus, a:active, button::-moz-focus-inner, input[type="reset"]::-moz-focus-inn
     float: left;
 }
 h1, h2, h3, h4, h5, h6 {
-	font: normal normal normal 88px/1.4em 'Jack',sans-serif ;
+	font-family: 'Jack',sans-serif ;
 	color:#FFFFFF;
     color: #1c1c1c;
 }
@@ -125,7 +125,7 @@ h4 {
 }
 p {
    color: #7a7a7a;
-	font-size: 14px;
+	font-size: 18px;
 	line-height: 20px;
 	font-weight: 400;
 }
@@ -1277,6 +1277,7 @@ nav {
 #features {
     padding-top: 90px;
     padding-bottom: 80px;
+	text-align: center;
 }
 @media (min-width: 992px) {
     .features-row {
@@ -1354,6 +1355,8 @@ nav {
 #about p {
     line-height: 1.8;
 }
+
+/* VIDEO*/
 .video-container {
     position: relative;
     padding-bottom: 51%;
@@ -1426,6 +1429,109 @@ nav {
 	bottom: -5px;
 	content: "";
 	left: 35%;
+}
+
+/* ABOUT SECTION */
+section#about, section#lasalle {
+	text-align: center;
+}
+
+section#about .content, section#lasalle .content {
+	max-width: 710px;
+	margin: auto;
+	background: none;
+}
+
+@media (max-width:710px) {
+	section#about p, section#lasalle p {
+		text-align: justify;
+		margin: 10px;
+	}
+}
+
+/* LA SALLE SECTION */
+section#lasalle {
+	background: black;
+	height: 200px;
+}
+
+section#lasalle h2, section#lasalle p {
+	color: white;
+}
+
+section#lasalle .content {
+	padding-top: 35px;
+}
+
+/* LA SALLE PHOTO */
+section#lasalle_photo, section#lasalle_photo .main_photo {
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+section#lasalle_photo .main_photo img {
+	width: 100%;
+	transition: opacity 1s, transform 8s linear;
+	opacity: 0;
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+section#lasalle_photo .main_photo .current {
+	opacity: 1;
+	z-index: 2;
+	position: static;
+	transform: scale(1.2);
+	transform-origin: center;
+}
+section#lasalle_photo .min_photo {
+	text-align: center;
+	position: absolute;;
+	bottom: 100px;
+	width: 100%;
+	z-index: 3;
+}
+section#lasalle_photo .min_photo img {
+	height: 67px;
+	margin: auto 5px auto auto;
+	box-shadow: 0 0 5px 0px;
+    border: 1px solid #ffffff;
+	transition: opacity 1s;
+	opacity: .5;
+	cursor: pointer;
+}
+
+section#lasalle_photo .min_photo img:hover, section#lasalle_photo .min_photo img.current {
+	opacity: 1;
+}
+
+section#lasalle_photo .title_photo {
+	position: absolute;
+	top: 45%;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+}
+
+section#lasalle_photo .title_photo div {
+	background: rgba(0,0,0,.6);
+	color: white;
+	text-transform: uppercase;
+	transition: opacity 1s, top 1s;
+	font-size: 50px;
+	font-family: 'Jack',sans-serif;
+	padding: 5px 20px;
+	position: absolute;
+	top: 50px;
+	opacity: 0;
+	display: inline-block;
+	transform: translateX(-50%);
+}
+
+section#lasalle_photo .title_photo div.current {
+	opacity: 1;
+	top: 0;
 }
 
 /*----- Team -----*/
