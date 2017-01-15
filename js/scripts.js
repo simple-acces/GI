@@ -204,6 +204,10 @@
     }
 
     /* LA SALLE PHOTO */
+    if ($(window).width() < $(window).height()) {
+        $('#lasalle_photo').addClass('mobile')
+        $('#lasalle_photo').css('height', $(window).height())
+    }
     var update_photo = function(index) {
         // get index
         var old = $('#lasalle_photo .main_photo img.current')
@@ -234,5 +238,11 @@
     })
 
     update_photo(0)
+
+    $('section#lescours .district_bt').hover(function() {
+        $(this).addClass('hover')
+    }, function() {
+        $(this).removeClass('hover')
+    })
 
 })(jQuery);
