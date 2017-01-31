@@ -64,6 +64,14 @@ body {
 	font-weight: 400;
 	color: #12252d;
 }
+button.facebook {
+	position: fixed;
+	bottom: 10px;
+	right: 40px;
+	z-index: 10000000000000;
+	background-color: #3B5998;
+	color: #fff;
+}
 a {
 	background: transparent;
 	outline: none;
@@ -3975,13 +3983,5 @@ pre {
 .pricing_table .planbox.highlight .hiimg {
 	display: block;
 	margin: -22px auto 0 auto;
-}
-button.facebook {
-	position: fixed;
-	bottom: 10px;
-	right: 40px;
-	z-index: 10000000000000;
-	background-color: #3B5998;
-	color: #fff;
 }
 
