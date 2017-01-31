@@ -3976,7 +3976,7 @@ pre {
 	display: block;
 	margin: -22px auto 0 auto;
 }
-.facebook.main.button {
+button.facebook {
 	position: fixed;
 	bottom: 10px;
 	right: 40px;
