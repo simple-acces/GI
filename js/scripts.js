@@ -254,10 +254,8 @@
         var ratioInView
         if (window.getComputedStyle(navBar).opacity !== "0") {
             ratioInView = (videoRect.bottom - navBarRect.height) / videoRect.height
-            console.log('nav:', ratioInView)
         } else {
             ratioInView = videoRect.bottom / videoRect.height
-            console.log(ratioInView)
         }
         if (isPlaying && ratioInView < 0.25) {
             video.pause()
