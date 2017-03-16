@@ -250,9 +250,11 @@
     var isPlaying = true
     var handleOnScrollVideoPlaying = function() {
         var videoRect = video.getBoundingClientRect()
-        var navBarRect = navBar.getBoundingClientRect()
+        if (navBar) {
+            var navBarRect = navBar.getBoundingClientRect()
+        }
         var ratioInView
-        if (window.getComputedStyle(navBar).opacity !== "0") {
+        if (navBar && window.getComputedStyle(navBar).opacity !== "0") {
             ratioInView = (videoRect.bottom - navBarRect.height) / videoRect.height
         } else {
             ratioInView = videoRect.bottom / videoRect.height
