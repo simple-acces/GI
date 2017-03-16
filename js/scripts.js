@@ -245,4 +245,33 @@
         $(this).removeClass('hover')
     })
 
+    var video = document.getElementsByTagName('video')[0]
+    var navBar = document.getElementsByTagName('nav')[0]
+    var isPlaying = true
+    var handleOnScrollVideoPlaying = function() {
+        var videoRect = video.getBoundingClientRect()
+        var navBarRect = navBar.getBoundingClientRect()
+        var ratioInView
+        if (window.getComputedStyle(navBar).opacity !== "0") {
+            ratioInView = (videoRect.bottom - navBarRect.height) / videoRect.height
+            console.log('nav:', ratioInView)
+        } else {
+            ratioInView = videoRect.bottom / videoRect.height
+            console.log(ratioInView)
+        }
+        if (isPlaying && ratioInView < 0.25) {
+            video.pause()
+            isPlaying = false
+        } else if (!isPlaying && ratioInView >= 0.25) {
+            video.play()
+            isPlaying = true
+        }
+    }
+    if (video) {
+        window.addEventListener('scroll', handleOnScrollVideoPlaying)
+        window.addEventListener('touchstart', handleOnScrollVideoPlaying)
+        window.addEventListener('touchmove', handleOnScrollVideoPlaying)
+        window.addEventListener('touchend', handleOnScrollVideoPlaying)
+    }
+
 })(jQuery);
