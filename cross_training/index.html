@@ -47,7 +47,7 @@
     <!-- End Preloader -->
     <!-- Start Header -->
     <header>
-      <nav class="navbar navbar-default navbar-alt" role="navigation">
+      <nav id="nav-bar" class="navbar navbar-default navbar-alt" role="navigation">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand to-top" rel="home" href="#"><img src="../img/logo.png" alt="Prime" class="logo-small" /></a></div>
@@ -61,7 +61,7 @@
     <!-- End Header -->
     <!-- Start Home Revolution Slider Parallax Section -->
     <section id="home-revolution-slider-video" class="current">
-      <video src="../uploads/Training_day_Cross_training.mp4" loop="" autoplay="" style="width:100%;height:100%"></video>
+      <video id="top-video" src="../uploads/Training_day_Cross_training.mp4" loop="" autoplay="" style="width:100%;height:100%"></video>
       <div style="top: 150px; min-width: 100%;position: absolute" class="subtitle">
         <h2 class="home-heading op-1" style="text-shadow: black 0px 0px 8px; opacity: 1;"><span style="letter-spacing: 0.1em"></span><span style="letter-spacing: 0.1em">DISTRICT CROSS TRAINING</span></h2>
       </div>
@@ -90,16 +90,55 @@ Notre coach Charly dispense 20H de cours collectifs par semaine.</p>
         <div class="text-center">
           <h2 class="wow fadeInUp">LE CROSS TRAINING EN IMAGES</h2>
         </div>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/-XjD5YRMlyM" frameborder="0" allowfullscreen=""></iframe>
+        <div class="container">
+          <div class="image_btn col-md-4 col-xs-12">
+            <div class="image_btn_container">
+              <img class="miniature_img" src="../uploads/charly_385x385.jpg" />
+              <img class="full_size_img" src="../uploads/charly_385x385.jpg" />
+              <div class="overlay">
+                <div class="zoomin glyphicon glyphicon-zoom-in"></div>
+              </div>
+            </div>
+          </div>
+          <div class="image_btn col-md-4 col-xs-12">
+            <div class="image_btn_container">
+              <img class="miniature_img" src="../uploads/jerome.jpg" />
+              <img class="full_size_img" src="../uploads/jerome.jpg" />
+              <div class="overlay">
+                <div class="zoomin glyphicon glyphicon-zoom-in"></div>
+              </div>
+            </div>
+          </div>
+          <div class="image_btn col-md-4 col-xs-12">
+            <div class="image_btn_container">
+              <img class="miniature_img" src="../uploads/david.jpg" />
+              <img class="full_size_img" src="../uploads/david.jpg" />
+              <div class="overlay">
+                <div class="zoomin glyphicon glyphicon-zoom-in"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section id="lasalle_photo" style="display: none" class="">
+        <div class="main_photo"><img src="uploads/espace_cross.jpg" class="current" /><img src="img/lasalle2.jpg" class="" /><img src="img/lasalle3.jpg" class="" /><img src="uploads/espace_fitness_danse.jpg" class="" /><img src="uploads/espace_prestashop.jpg" class="" /></div>
+        <div class="title_photo">
+          <div class="current">L’ESPACE CROSS TRAINING</div>
+          <div class="">L’ESPACE NINJA</div>
+          <div class="">L’ESPACE NINJA KIDS</div>
+          <div class="">L’ESPACE FITNESS ET DANSE</div>
+          <div class="">L’ESPACE PRO SHOP</div>
+        </div>
+        <div class="min_photo"><img src="uploads/espace_cross_min.jpg" class="current" /><img src="img/lasalle2_min.jpg" class="" /><img src="img/lasalle3_min.jpg" class="" /><img src="uploads/espace_fitness_danse_min.jpg" class="" /><img src="uploads/espace_prestashop_min.jpg" class="" /></div>
+      </section>
       </section>
       <!--End Features Section -->
       <section id="tarif" class="">
         <h2><span class="yellow_l">T</span>ARIF &amp; <font color="#ffff00">P</font>LANNING</h2>
         <div class="container">
-        <div class="col-md-8 col-xs-12">
+        <div class="col-md-9 col-xs-12">
           <img src="../uploads/PLANNINGDISTRICT_991x700.jpg" class="image" alt="Planning District 30" title="Planning District 30" />
         </div>
-        <div class="col-md-4 col-xs-12">
+        <div class="col-md-3 col-xs-12">
           <p><b></b><br />
           <br />
           Abonnements Cross training :<br />
