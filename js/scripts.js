@@ -392,7 +392,11 @@
     }
 
     /** Replace home-bottom */
-    var top = document.getElementById('top-video').getBoundingClientRect().height * 0.9
-    document.getElementsByClassName('home-bottom')[0].style.top = top + 'px'
+    if (video) {
+        var top = video.getBoundingClientRect().height * 0.9
+        document.getElementsByClassName('home-bottom')[0].style.top = top + 'px'
+    } else {
+        document.getElementsByClassName('home-bottom')[0].style.bottom = 0
+    }
 
 })(jQuery);

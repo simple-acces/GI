@@ -1396,7 +1396,7 @@ nav li {
     transform: translateX(-1000px)
 }
 
-.image_btn_container {
+.image_btn {
 	width: 100%;
 	max-width: 200px;
 	height: 200px;
@@ -1404,13 +1404,15 @@ nav li {
 	overflow: hidden;
 	position: relative;
     cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
 }
 
 .image_btn.hover img {
 	transform: scale(1.1);
 }
 
-.image_btn_container .overlay {
+.image_btn .overlay {
 	background-color: rgba(0,0,0,0);
 	width: 100%;
 	height: 100%;
@@ -1432,7 +1434,7 @@ nav li {
 	line-height: 320px;
 }
 
-.image_btn_container .overlay .zoomin {
+.image_btn .overlay .zoomin {
     display: none;
     top: 50%
 }
@@ -1611,6 +1613,8 @@ section#lasalle .content {
 
 section#lasalle .content p {
 	font-size: 15px;
+    line-height: 20px;
+    font-weight: 400;
 }
 
 /* LA SALLE PHOTO */
