@@ -42,7 +42,7 @@
         Back to top button popup
         ---------------------*/
         if($(window).scrollTop() > 400){
-        $("#back-to-top").stop().animate({ bottom:'16px' },300,'easeInOutCubic')
+            $("#back-to-top").stop().animate({ bottom:'16px' },300,'easeInOutCubic')
         }
         else{
             $("#back-to-top").stop().animate({ bottom:'-50px' },300,'easeInOutCubic')
@@ -107,7 +107,9 @@
     function close_toggle() {
         if ($(window).width() <= 992) {
           $('.navbar-collapse a').on('click', function(){
-              $('.navbar-collapse').collapse('hide')
+              if (!$(this).hasClass('dropdown-toggle')) {
+                $('.navbar-collapse').collapse('hide')
+              }
           });
         }
         else {
@@ -201,6 +203,8 @@
         })
         $('#loader, .spinner').css('display', 'block')
         close_galery()
+        $('.dropdown').find('.dropdown-menu').stop(true, true).fadeOut();
+        $('.dropdown').removeClass('open');
         setTimeout(done, 500)
     }
 
@@ -392,21 +396,37 @@
     }
 
     /** Replace home-bottom */
-    if (video) {
-        var top = video.getBoundingClientRect().height * 0.9
-        document.getElementsByClassName('home-bottom')[0].style.top = top + 'px'
-    } else {
-        document.getElementsByClassName('home-bottom')[0].style.bottom = 0
+    var homeButtonPosition = function() {
+         if (video) {
+            var top = video.getBoundingClientRect().height * 0.9
+            document.getElementsByClassName('home-bottom')[0].style.top = top + 'px'
+        } else {
+            document.getElementsByClassName('home-bottom')[0].style.bottom = 0
+        }
     }
+    homeButtonPosition()
+    $(window).resize(homeButtonPosition);
 
+    /** DROPDOWN DISTRICTS */
     var timerIn = 200;
     var timerOut = 200;
-    $('.dropdown').hover(function() {
-        $(this).find('.dropdown-menu').stop(true, true).fadeIn(timerIn);
-        $(this).addClass('open');
-    }, function() {
-        $(this).find('.dropdown-menu').stop(true, true).fadeOut(timerOut);
-        $(this).removeClass('open');
-    });
+    var prepareDropdown = function() {
+        if ($(window).width() <= 992) {
+            $('.dropdown').off('hover')
+        }
+        else {
+            $('.dropdown').hover(function() {
+                $(this).find('.dropdown-menu').stop(true, true).fadeIn(timerIn)
+                $(this).addClass('open')
+                console.error($(this))
+            }, function() {
+                $(this).find('.dropdown-menu').stop(true, true).fadeOut(timerOut)
+                $(this).removeClass('open')
+            });
+        }
+    }
+    prepareDropdown()
+    $(window).resize(prepareDropdown);
+
 
 })(jQuery);

@@ -705,7 +705,7 @@ span.yellow_l {
 }
 .home-bottom {
 	position: absolute;
-	z-index: 99;
+	z-index: 98;
 	width: 100%;
 	left: 0;
 	text-align: center;
@@ -850,7 +850,7 @@ nav li {
 	left: 0;
 	width: 100%;
 	padding: 10px 0px;
-	z-index: 4;
+	z-index: 99;
     /*border-bottom: 1px solid rgba(255,255,255,0.25);*/
 }
 .navbar-alt {
