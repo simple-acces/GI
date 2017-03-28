@@ -335,6 +335,25 @@
         // set new as current
         current.addClass('current')
         prepare_neighbours(index)
+
+        $(document).keydown(function(e) {
+            switch(e.which) {
+                case 37: // left
+                    move_in_galery(-1)
+                break;
+
+                case 39: // right
+                    move_in_galery(1)
+                break;
+
+                case 27: // escape
+                    close_galery()
+                break;
+
+                default: return; // exit this handler for other keys
+            }
+            e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
     }
 
     $('.image_btn').hover(function() {
@@ -346,25 +365,6 @@
     $('.image_btn').click(function() {
         open_galery($(this).index())
     })
-
-    $(document).keydown(function(e) {
-        switch(e.which) {
-            case 37: // left
-                move_in_galery(-1)
-            break;
-
-            case 39: // right
-                move_in_galery(1)
-            break;
-
-            case 27: // escape
-                close_galery()
-            break;
-
-            default: return; // exit this handler for other keys
-        }
-        e.preventDefault(); // prevent the default action (scroll / move caret)
-    });
 
     /** HANDLE TOP-VIDEO PAUSE/PLAY */
     var video = document.getElementById('top-video')
