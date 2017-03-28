@@ -265,6 +265,7 @@
         if (galery) {
             document.body.removeChild(galery)
         }
+        $(document).unbind('keydown')
     }
 
     var prepare_neighbours = function(index) {
