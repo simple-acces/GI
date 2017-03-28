@@ -1306,6 +1306,9 @@ nav li {
     padding-bottom: 80px;
 	text-align: center;
 }
+#features .container {
+    padding-top: 25px;
+}
 @media (min-width: 992px) {
     .features-row {
         margin-bottom: 70px;
