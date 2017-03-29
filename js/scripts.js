@@ -419,7 +419,6 @@
             $('.dropdown').hover(function() {
                 $(this).find('.dropdown-menu').stop(true, true).fadeIn(timerIn)
                 $(this).addClass('open')
-                console.error($(this))
             }, function() {
                 $(this).find('.dropdown-menu').stop(true, true).fadeOut(timerOut)
                 $(this).removeClass('open')

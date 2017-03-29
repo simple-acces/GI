@@ -1158,9 +1158,6 @@ nav li {
 
 /*Dropdown*/
 @media (min-width: 992px) {
-    .navbar-small .dropdown {
-        margin-top: .49999999px;
-    }
     .navbar-default .container {
         max-width: 1245px;
         padding-left: 15px;
