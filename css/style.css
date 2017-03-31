@@ -2816,6 +2816,17 @@ border-bottom:1px dotted #ccc;
     color: #7a7a7a;
 }
 
+#contact.inverted {
+    background-color: black;
+}
+#contact.inverted h3, #contact.inverted h4{
+    color: white;
+}
+#contact.inverted #submit {
+    color: black;
+    background-color: white;
+}
+
 /*----- Google maps -----*/
 #map {
     height:450px;
