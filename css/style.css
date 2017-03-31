@@ -1373,6 +1373,12 @@ nav li {
 .feature-buttons {
     margin-top: 40px;
 }
+#features.inverted {
+    background-color: black;
+}
+#features.inverted h2 {
+    color: white;
+}
 
 .miniature_img {
     height: 100%;
