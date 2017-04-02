@@ -48,6 +48,11 @@
             $("#back-to-top").stop().animate({ bottom:'-50px' },300,'easeInOutCubic')
         }
     });
+    $('nav').hover(function() {
+        $(this).addClass('navbar-small')
+    }, function() {
+        $(this).removeClass('navbar-small')
+    });
     /* -------------------
     Preloader
     ---------------------*/
