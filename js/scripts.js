@@ -258,7 +258,12 @@
     /** GALERIE */
     var close_galery = function() {
         var imgs = $('.full_size_img')
-        $('.full_size_img.current').removeClass('current')
+        var old = $('.full_size_img.current')
+        if (old[0].pause) {
+            old[0].pause()
+            old[0].currentTime = 0
+        }
+        old.removeClass('current')
         $('.full_size_img.next').removeClass('next')
         $('.full_size_img.prev').removeClass('prev')
         var img_btns = $('.image_btn')
@@ -301,12 +306,19 @@
             index = $('.full_size_img').length - 1
         }
         // reset current
+        if (old[0].pause) {
+            old[0].pause()
+            old[0].currentTime = 0
+        }
         old.removeClass('current')
         prepare_neighbours(index)
         var current = $($('.full_size_img').get(index))
         current.removeClass('next')
         current.removeClass('prev')
         current.addClass('current')
+        if (current[0].play) {
+            current[0].play()
+        }
     }
 
     var open_galery = function(index) {
@@ -339,6 +351,9 @@
         var current = $($('.full_size_img').get(index))
         // set new as current
         current.addClass('current')
+        if (current[0].play) {
+            current[0].play()
+        }
         prepare_neighbours(index)
 
         $(document).keydown(function(e) {
