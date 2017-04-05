@@ -259,7 +259,7 @@
     var close_galery = function() {
         var imgs = $('.full_size_img')
         var old = $('.full_size_img.current')
-        if (old[0].pause) {
+        if (old.length && old[0].pause) {
             old[0].pause()
             old[0].currentTime = 0
         }
