@@ -1445,12 +1445,15 @@ nav li {
 
 .image_btn .overlay .zoomin {
     display: none;
-    top: 50%
+    top: 50%;
 }
 
 .image_btn.hover .overlay .zoomin {
     display: block;
-    top: 50%
+}
+
+.image_btn .overlay span.zoomin{
+    font-size: 12px;
 }
 
 #galery {
