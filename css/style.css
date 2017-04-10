@@ -1504,6 +1504,16 @@ nav li {
     z-index: 110;
 	font-size: 20px;
 }
+.text_galery {
+    position: fixed;
+    bottom: 5%;
+    vertical-align: middle;
+    color: white;
+    z-index: 110;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px 5px 5px 5px;
+}
 
 /*----- About Section -----*/
 #about {

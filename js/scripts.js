@@ -319,6 +319,10 @@
         if (current[0].play) {
             current[0].play()
         }
+        var text_span = document.getElementsByClassName('text_galery')[0]
+        if (text_span) {
+            text_span.innerText = $($('span.zoomin').get(index)).length > 0 ? $($('span.zoomin').get(index))[0].innerText : ''
+        }
     }
 
     var open_galery = function(index) {
@@ -328,14 +332,17 @@
         var go_to_right_btn = document.createElement('div')
         var go_to_left_btn = document.createElement('div')
         var imgs_div = document.createElement('div')
+        var text_span = document.createElement('span')
         close_btn.className = 'close_galery glyphicon glyphicon-remove'
         go_to_right_btn.className = 'go_to_right_galery glyphicon glyphicon-chevron-right'
         go_to_left_btn.className = 'go_to_left_galery glyphicon glyphicon-chevron-left'
         imgs_div.id = 'galery_imgs'
+        text_span.className = 'text_galery'
         galery.appendChild(close_btn)
         galery.appendChild(go_to_right_btn)
         galery.appendChild(go_to_left_btn)
         galery.appendChild(imgs_div)
+        galery.appendChild(text_span)
 
         var imgs = $('.full_size_img')
         for (var i = 0; i < imgs.length; i++) {
@@ -349,6 +356,7 @@
         $('.go_to_left_galery').click(function() {move_in_galery(-1)})
 
         var current = $($('.full_size_img').get(index))
+        text_span.innerText = $($('span.zoomin').get(index)).length > 0 ? $($('span.zoomin').get(index))[0].innerText : ''
         // set new as current
         current.addClass('current')
         if (current[0].play) {
