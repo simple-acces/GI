@@ -1506,7 +1506,7 @@ nav li {
 }
 .text_galery {
     position: fixed;
-    bottom: 5%;
+    bottom: 8%;
     vertical-align: middle;
     color: white;
     z-index: 110;
