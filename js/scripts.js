@@ -257,6 +257,7 @@
 
     /** GALERIE */
     var close_galery = function() {
+        $("body").css("overflow", "auto");
         var imgs = $('.full_size_img')
         var old = $('.full_size_img.current')
         if (old.length && old[0].pause) {
@@ -326,6 +327,7 @@
     }
 
     var open_galery = function(index) {
+        $("body").css("overflow", "hidden");
         var galery = document.createElement('div')
         galery.id = 'galery'
         var close_btn = document.createElement('div')
@@ -391,7 +393,7 @@
     })
 
     $('.image_btn').click(function() {
-        open_galery($(this).index())
+        open_galery($('.image_btn').index($(this)))
     })
 
     /** HANDLE TOP-VIDEO PAUSE/PLAY */
