@@ -257,7 +257,7 @@
 
     /** GALERIE */
     var close_galery = function() {
-        $("body").css("overflow", "auto");
+        enableScroll()
         var imgs = $('.full_size_img')
         var old = $('.full_size_img.current')
         if (old.length && old[0].pause) {
@@ -327,7 +327,7 @@
     }
 
     var open_galery = function(index) {
-        $("body").css("overflow", "hidden");
+        disableScroll()
         var galery = document.createElement('div')
         galery.id = 'galery'
         var close_btn = document.createElement('div')
@@ -458,5 +458,39 @@
     prepareDropdown()
     $(window).resize(prepareDropdown);
 
+   /* BLOCK SCROLL */
+    var preventDefault = (e) => {
+        e = e || window.event;
+        if (e.preventDefault) {
+            e.preventDefault();
+        }
+        e.returnValue = false;
+    }
+
+    var preventDefaultForScrollKeys = (e) => {
+        var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+        if (keys[e.keyCode]) {
+            preventDefault(e);
+            return false;
+        }
+    }
+
+    var disableScroll = () => {
+        if (window.addEventListener) // older FF
+            window.addEventListener('DOMMouseScroll', preventDefault, false);
+        window.onwheel = preventDefault; // modern standard
+        window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+        window.ontouchmove  = preventDefault; // mobile
+        document.onkeydown  = preventDefaultForScrollKeys;
+    }
+
+    var enableScroll = () => {
+        if (window.removeEventListener)
+            window.removeEventListener('DOMMouseScroll', preventDefault, false);
+        window.onmousewheel = document.onmousewheel = null;
+        window.onwheel = null;
+        window.ontouchmove = null;
+        document.onkeydown = null;
+    }
 
 })(jQuery);
