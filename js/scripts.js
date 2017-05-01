@@ -61,10 +61,10 @@
         $('#loader').fadeOut('slow');
         $('.spinner').fadeOut('slow');
     }); // End Window Load
-    preloadOk = 0
-    preloadCheck = $($('section')[0]).find('img').load(function() {
+    var preloadOk = 0
+    var preloadCheck = $($('section')[0]).find('img').load(function() {
         preloadOk++
-        if (preloadOk = preloadCheck.length) {
+        if (preloadOk === preloadCheck.length) {
             $('#loader').fadeOut('slow');
             $('.spinner').fadeOut('slow');
         }
