@@ -250,6 +250,16 @@
 
     update_photo(0)
 
+    $('.bphotor').click(function() {
+        update_photo()
+    })
+
+    $('.bphotol').click(function() {
+        var i = $('#lasalle_photo .main_photo img.current').index()
+        i = i === 0 ? $('#lasalle_photo .main_photo img').length - 1 : i - 1
+        update_photo(i)
+    })
+
     $('section#lescours .district_bt').hover(function() {
         $(this).addClass('hover')
     }, function() {
