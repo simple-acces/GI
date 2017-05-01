@@ -60,7 +60,7 @@
         // Preloader
         $('#loader').fadeOut('slow');
         $('.spinner').fadeOut('slow');
-        $('img.full_size_img').each(function(i, e) {
+        $('.full_size_img').each(function(i, e) {
             var j = $(this)
             j.attr('src', j.attr('data-lazy'))
             j.removeAttr('data-lazy')
@@ -74,7 +74,7 @@
             $('.spinner').fadeOut('slow');
         }
     })
-    $('img.full_size_img').each(function(i, e) {
+    $('.full_size_img').each(function(i, e) {
         var j = $(this)
         j.attr('data-lazy', j.attr('src'))
         j.removeAttr('src')
