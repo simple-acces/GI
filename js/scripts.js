@@ -61,6 +61,14 @@
         $('#loader').fadeOut('slow');
         $('.spinner').fadeOut('slow');
     }); // End Window Load
+    preloadOk = 0
+    preloadCheck = $($('section')[0]).find('img').load(function() {
+        preloadOk++
+        if (preloadOk = preloadCheck.length) {
+            $('#loader').fadeOut('slow');
+            $('.spinner').fadeOut('slow');
+        }
+    })
     /* -------------------
     Page Hero Parallax
     ---------------------*/
@@ -258,12 +266,6 @@
         var i = $('#lasalle_photo .main_photo img.current').index()
         i = i === 0 ? $('#lasalle_photo .main_photo img').length - 1 : i - 1
         update_photo(i)
-    })
-
-    $('#features img').each(function(i, e) {
-        var j = $(this)
-        j.attr('data-original', j.attr('src'))
-        j.removeAttr('src')
     })
 
     $('section#lescours .district_bt').hover(function() {
