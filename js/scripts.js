@@ -210,6 +210,7 @@
         close_galery()
         $('.dropdown').find('.dropdown-menu').stop(true, true).fadeOut();
         $('.dropdown').removeClass('open');
+        $('.form-validation').html('').removeClass('alert-danger alert-success')
         setTimeout(done, 500)
     }
 
