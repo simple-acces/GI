@@ -260,6 +260,12 @@
         update_photo(i)
     })
 
+    $('#features img').each(function(i, e) {
+        var j = $(this)
+        j.attr('data-original', j.attr('src'))
+        j.removeAttr('src')
+    })
+
     $('section#lescours .district_bt').hover(function() {
         $(this).addClass('hover')
     }, function() {
