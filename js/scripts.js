@@ -352,6 +352,11 @@
         var text_span = document.getElementsByClassName('text_galery')[0]
         if (text_span) {
             text_span.innerText = $($('span.zoomin').get(index)).length > 0 ? $($('span.zoomin').get(index))[0].innerText : ''
+            if (text_span.innerText === '') {
+                text_span.style.display = 'none'
+            } else {
+                text_span.style.display = 'block'
+            }
         }
     }
 
@@ -388,6 +393,11 @@
 
         var current = $($('.full_size_img').get(index))
         text_span.innerText = $($('span.zoomin').get(index)).length > 0 ? $($('span.zoomin').get(index))[0].innerText : ''
+        if (text_span.innerText === '') {
+            text_span.style.display = 'none'
+        } else {
+            text_span.style.display = 'block'
+        }
         // set new as current
         current.addClass('current')
         if (current[0].play) {
