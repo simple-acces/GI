@@ -999,8 +999,7 @@ nav li {
     color: #1c1c1c;
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
-    color: #eae200;
-    text-shadow: 0 0 2px rgba(0,0,0,0.8);
+    color: #e3e448;
 }
 
 
@@ -1242,6 +1241,9 @@ nav li {
         box-shadow: none;
         border: none;
         margin-left: 15px;
+    }
+    .dropdown.open .dropdown-menu {
+        display: block !important;
     }
     .navbar-default .navbar-nav > li > a,
     .navbar-default .navbar-nav > li > span {
