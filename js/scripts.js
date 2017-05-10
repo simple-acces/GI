@@ -51,7 +51,9 @@
     $('nav').hover(function() {
         $(this).addClass('navbar-small')
     }, function() {
-        $(this).removeClass('navbar-small')
+        if ($(window).scrollTop() <= 5){
+            $(this).removeClass('navbar-small')
+        }
     });
     /* -------------------
     Preloader
@@ -493,6 +495,7 @@
                 $(this).removeClass('open')
             });
         }
+        $('.dropdown-menu').last().css('left', '-30px')
     }
     prepareDropdown()
     $(window).resize(prepareDropdown);

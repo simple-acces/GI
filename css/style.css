@@ -1165,11 +1165,12 @@ nav li {
     }
     .navbar-right .dropdown-menu {
         right: auto;
-        left: 0;
+        left: -25px;
     }
     .dropdown-menu {
         background-color: white;
         border-radius: 0;
+        border: none;
         box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08);
         margin: 0;
         padding-top: 2px;
@@ -1180,12 +1181,14 @@ nav li {
     }
     .dropdown-menu > li > a {
         color: black;
-        font-size: 12px;
-        font-weight: 400;
-        text-transform: none;
-        position: relative;
-        padding: 11px 25px 11px 20px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 11px 0 11px 0;
         border-bottom: 1px solid black;
+        width: 70%;
+        margin: auto;
+        text-align: center;
     }
     .dropdown-menu > li:last-child > a {
         border-bottom: 0;
