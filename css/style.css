@@ -1000,6 +1000,7 @@ nav li {
 }
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
     color: #eae200;
+    text-shadow: 0 0 2px rgba(0,0,0,0.8);
 }
 
 
