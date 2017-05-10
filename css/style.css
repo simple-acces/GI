@@ -992,12 +992,6 @@ nav li {
 	padding-left: 0px;
 	color: #3a3a3a;
 }
-.navbar-default .navbar-nav>li>a:focus {
-    color: #f5f5f5;
-}
-.navbar-small .navbar-nav>li>a:focus {
-    color: #1c1c1c;
-}
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
     color: #e3e448;
 }
