@@ -161,6 +161,10 @@
                 $alert.html( 'Les champs marqués d\'une étoile sont requis' );
                 $alert.addClass( 'alert-danger' ).fadeIn( 500 );
                 return
+            } else if ($el.find('input#username').val()) {
+                $alert.html( 'Sorry mister robot !!!' );
+                $alert.addClass( 'alert-danger' ).fadeIn( 500 );
+                return
             }
 
             $submit
