@@ -153,7 +153,7 @@
             var $el = $( this ),
                 $alert = $el.find( '.form-validation' ),
                 $submit = $el.find( '#submit' ),
-                action = $el.attr( 'action' );
+                action = $el.attr( 'data-action' );
             $alert.removeClass( 'alert-danger alert-success' );
             $alert.html( '' );
 
