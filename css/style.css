@@ -1811,6 +1811,16 @@ section#lescours .district_bt .overlay {
 	transition: background-color 200ms, line-height 200ms;
 }
 
+section#lescours .district_bt .overlay p {
+    color: white;
+    vertical-align: middle;
+    display: inline-block;
+    line-height: 40px;
+	font-size: 30px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #000000;
+}
+
 section#lescours .district_bt.hover .overlay {
 	background-color: rgba(0,0,0,.5);
 	line-height: 320px;
