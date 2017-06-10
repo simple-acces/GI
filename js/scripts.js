@@ -1,8 +1,7 @@
 (function($) {
     "use strict";
-    $(window).load(function() {
-        setTimeout(function() { $('.tp-bgimg.defaultimg').css('padding-bottom', '0') }, 2000)
-    })
+
+    var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
     /* -------------------
     Parallax Sections
     ---------------------*/
@@ -438,6 +437,10 @@
             }
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
+
+        if (iOS) {
+            //$('#galery_imgs').css('position', 'absolute')
+        }
     }
 
     $('.image_btn').hover(function() {
@@ -501,7 +504,7 @@
         }
         else {
             $('.dropdown').hover(function() {
-                $(this).find('.dropdown-menu').stop(true, true).fadeIn(timerIn)
+                $(this).find('.dropdown-menu').stop(true, true).fadeIn(timerIn);
                 $(this).addClass('open')
             }, function() {
                 $(this).find('.dropdown-menu').stop(true, true).fadeOut(timerOut)
@@ -514,7 +517,7 @@
     $(window).resize(prepareDropdown);
 
    /* BLOCK SCROLL */
-    var preventDefault = (e) => {
+    var preventDefault = function(e){
         e = e || window.event;
         if (e.preventDefault) {
             e.preventDefault();
@@ -522,7 +525,7 @@
         e.returnValue = false;
     }
 
-    var preventDefaultForScrollKeys = (e) => {
+    var preventDefaultForScrollKeys = function(e) {
         var keys = {37: 1, 38: 1, 39: 1, 40: 1};
         if (keys[e.keyCode]) {
             preventDefault(e);
@@ -530,7 +533,7 @@
         }
     }
 
-    var disableScroll = () => {
+    var disableScroll = function() {
         if (window.addEventListener) // older FF
             window.addEventListener('DOMMouseScroll', preventDefault, false);
         window.onwheel = preventDefault; // modern standard
@@ -539,7 +542,7 @@
         document.onkeydown  = preventDefaultForScrollKeys;
     }
 
-    var enableScroll = () => {
+    var enableScroll = function(){
         if (window.removeEventListener)
             window.removeEventListener('DOMMouseScroll', preventDefault, false);
         window.onmousewheel = document.onmousewheel = null;
