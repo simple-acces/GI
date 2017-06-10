@@ -66,7 +66,12 @@
     /* -------------------
     Preloader
     ---------------------*/
+    var loader_timeout = setTimeout(function() {
+        $('#loader').fadeOut('slow');
+        $('.spinner').fadeOut('slow');
+    }, 5000)
     $(window).load(function(){
+        clearTimeout(loader_timeout)
         // Preloader
         $('#loader').fadeOut('slow');
         $('.spinner').fadeOut('slow');
