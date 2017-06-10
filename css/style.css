@@ -85,6 +85,23 @@ a:focus, a:active, button::-moz-focus-inner, input[type="reset"]::-moz-focus-inn
     border: 0;
     outline : 0;
 }
+iframe {
+    max-width: 100%;
+}
+span {
+    word-break: break-word;
+}
+.btn {
+    max-width: 100%;
+}
+@media only screen and (max-width: 960px) {
+    .btn {
+        font-size: 12px !important;
+    }
+    h2 {
+        font-size: 40px !important;
+    }
+}
 @media only screen and (min-width: 1200px) {
     .container {
         max-width: 1425px;
@@ -215,9 +232,6 @@ span.yellow_l {
     }
 }
 @media (max-width:600px) {
-    .tp-bgimg {
-        height: 65% !important;
-    }
 	.subtitle {
 		top: 350px !important;
 	}
@@ -1416,6 +1430,7 @@ nav li {
     cursor: pointer;
     display: inline-block;
     margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .image_btn.hover img {
@@ -1717,6 +1732,23 @@ section#lasalle_photo .title_photo div {
 	opacity: 0;
 	display: inline-block;
 	transform: translateX(-50%);
+}
+
+@media (max-width: 600px) {
+    section#lasalle_photo .title_photo div {
+        background: rgba(0,0,0,.6);
+        color: white;
+        text-transform: uppercase;
+        transition: opacity 1s, top 1s;
+        font-size: 30px;
+        font-family: 'Jack',sans-serif;
+        padding: 5px 20px;
+        position: absolute;
+        top: 50px;
+        opacity: 0;
+        display: inline-block;
+        transform: translateX(-50%);
+    }
 }
 
 section#lasalle_photo .title_photo div.current {

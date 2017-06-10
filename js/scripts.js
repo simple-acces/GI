@@ -1,6 +1,8 @@
 (function($) {
     "use strict";
-
+    $(window).load(function() {
+        setTimeout(function() { $('.tp-bgimg.defaultimg').css('padding-bottom', '0') }, 2000)
+    })
     /* -------------------
     Parallax Sections
     ---------------------*/
@@ -32,11 +34,15 @@
         /* -------------------
         Header Animation
         ---------------------*/
-        if ($(this).scrollTop() > 5){
+        if ($(window).width() > 992) {
+            if ($(this).scrollTop() > 5){
+                $('nav').addClass("navbar-small")
+            }
+            else{
+                $('nav').removeClass("navbar-small")
+            }
+        } else {
             $('nav').addClass("navbar-small")
-        }
-        else{
-            $('nav').removeClass("navbar-small")
         }
         /* -------------------
         Back to top button popup
@@ -48,10 +54,13 @@
             $("#back-to-top").stop().animate({ bottom:'-50px' },300,'easeInOutCubic')
         }
     });
+    if ($(window).width() <= 992) {
+        $('nav').addClass("navbar-small")
+    }
     $('nav').hover(function() {
         $(this).addClass('navbar-small')
     }, function() {
-        if ($(window).scrollTop() <= 5){
+        if ($(window).scrollTop() <= 5 && $(window).width() > 992){
             $(this).removeClass('navbar-small')
         }
     });
