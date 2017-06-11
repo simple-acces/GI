@@ -327,32 +327,31 @@
         $(document).unbind('keydown')
     }
 
-    var prepare_neighbours = function(index) {
+    var prepare_neighbours = function(fsi, index) {
         var indexNext = index + 1
         var indexPrev = index - 1
-        if (indexNext > $('.full_size_img').length - 1) {
+        if (indexNext > fsi.length - 1) {
             indexNext = 0
         }
         if (indexPrev < 0) {
-            indexPrev = $('.full_size_img').length - 1
+            indexPrev = fsi.length - 1
         }
-        var next = $($('.full_size_img').get(indexNext))
-        var prev = $($('.full_size_img').get(indexPrev))
-        next.addClass('next')
-        next.removeClass('prev')
-        prev.addClass('prev')
-        prev.removeClass('next')
+        var next = $(fsi.get(indexNext))
+        var prev = $(fsi.get(indexPrev))
+        next.addClass('next').removeClass('prev')
+        prev.addClass('prev').removeClass('next')
     }
 
     var move_in_galery = function(to) {
         // get index
         var old = $('.full_size_img.current')
         var index = old.index() + to
+        var fsi = $('.full_size_img')
 
-        if (index > $('.full_size_img').length - 1) {
+        if (index > fsi.length - 1) {
             index = 0
         } else if (index < 0) {
-            index = $('.full_size_img').length - 1
+            index = fsi.length - 1
         }
         // reset current
         if (old[0].pause) {
@@ -360,11 +359,9 @@
             old[0].currentTime = 0
         }
         old.removeClass('current')
-        prepare_neighbours(index)
-        var current = $($('.full_size_img').get(index))
-        current.removeClass('next')
-        current.removeClass('prev')
-        current.addClass('current')
+        prepare_neighbours(fsi, index)
+        var current = $(fsi.get(index))
+        current.removeClass('next').removeClass('prev').addClass('current')
         if (current[0].play) {
             current[0].play()
         }
@@ -400,17 +397,15 @@
         galery.appendChild(text_span)
 
         var imgs = $('.full_size_img')
-        for (var i = 0; i < imgs.length; i++) {
-            imgs[i].style.display = 'block'
-            imgs_div.appendChild(imgs[i])
-        }
+        imgs.css('display', 'block').appendTo(imgs_div)
+
         document.body.appendChild(galery)
 
         $('.close_galery').click(close_galery)
         $('.go_to_right_galery').click(function() {move_in_galery(1)})
         $('.go_to_left_galery').click(function() {move_in_galery(-1)})
 
-        var current = $($('.full_size_img').get(index))
+        var current = $(imgs.get(index))
         text_span.innerText = $($('span.zoomin').get(index)).length > 0 ? $($('span.zoomin').get(index))[0].innerText : ''
         if (text_span.innerText === '') {
             text_span.style.display = 'none'
@@ -422,7 +417,9 @@
         if (current[0].play) {
             current[0].play()
         }
-        prepare_neighbours(index)
+        setTimeout(function() {
+            prepare_neighbours(imgs, index)
+        }, 500)
 
         $(document).keydown(function(e) {
             switch(e.which) {
@@ -443,8 +440,8 @@
             e.preventDefault(); // prevent the default action (scroll / move caret)
         });
 
-        if (iOS) {
-            //$('#galery_imgs').css('position', 'absolute')
+        if (!iOS) {
+            $('#galery').css('align-items', 'center').css('justify-content', 'center')
         }
     }
 
