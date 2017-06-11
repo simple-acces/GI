@@ -115,6 +115,7 @@ span {
         padding: 0 120px;
     }
 }
+
 #facebook {
     position: fixed;
     bottom: 10px;
@@ -1487,6 +1488,13 @@ nav li {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+@media only screen and (max-width: 800px) {
+    .full_size_img {
+        max-height: 100%;
+        left: 0;
+        top: 0;
+    }
 }
 #galery_imgs {
     display: flex;
