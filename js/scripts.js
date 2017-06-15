@@ -248,6 +248,7 @@
         $('.dropdown').find('.dropdown-menu').stop(true, true).fadeOut();
         $('.dropdown').removeClass('open');
         $('.form-validation').html('').removeClass('alert-danger alert-success')
+        $('.g-recaptcha').html('')
         setTimeout(done, 500)
     }
 
