@@ -54,7 +54,7 @@
 
         var get_instagram_media = function(id) {
             try {
-                var code = window._sharedData.entry_data.ProfilePage[0].user.media.nodes[id].code;
+                var code = window._sharedData.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges[id].node.shortcode;
 
                 $.ajax({
                     url: 'https://api.instagram.com/oembed/?url=https://www.instagram.com/p/' + code,
