@@ -251,6 +251,7 @@
         $('.g-recaptcha').html('')
         $('script[src*="gstatic.com/recaptcha"]').remove()
         $('script[src*="google-analytics.com/analytics.js"]').remove()
+        $('.g-recaptcha-bubble-arrow').parent().remove()
         setTimeout(done, 500)
     }
 
