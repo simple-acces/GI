@@ -33,7 +33,7 @@
         /* -------------------
         Header Animation
         ---------------------*/
-        if ($(window).width() > 992) {
+        /*if ($(window).width() > 992) {
             if ($(this).scrollTop() > 5){
                 $('nav').addClass("navbar-small")
             }
@@ -42,7 +42,7 @@
             }
         } else {
             $('nav').addClass("navbar-small")
-        }
+        }*/
         /* -------------------
         Back to top button popup
         ---------------------*/
@@ -53,7 +53,7 @@
             $("#back-to-top").stop().animate({ bottom:'-50px' },300,'easeInOutCubic')
         }
     });
-    if ($(window).width() <= 992) {
+    /*if ($(window).width() <= 992) {
         $('nav').addClass("navbar-small")
     }
     $('nav').hover(function() {
@@ -62,7 +62,8 @@
         if ($(window).scrollTop() <= 5 && $(window).width() > 992){
             $(this).removeClass('navbar-small')
         }
-    });
+    });*/
+    $('nav').addClass("navbar-small")
     /* -------------------
     Preloader
     ---------------------*/
