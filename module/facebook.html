@@ -85,7 +85,7 @@
             /**
              * START - GET FEEDS
              */
-            $.get('http://octoboot.soizen.ovh/facebook/' + pid + '/feed', function(feeds) {
+            $.get('//octoboot.ovh/facebook/' + pid + '/feed', function(feeds) {
                 feeds.forEach(function(post_id) {
                     if (count) {
                         ids = post_id.split('_');
