@@ -38,7 +38,7 @@
             if (location.search) {
                 iframe_data = location.search.replace('?', '').split('|')
                 $.get(
-                    'http://octoboot.soizen.ovh/stringfromurl/https%3A%2F%2Fwww.instagram.com%2F' +
+                    '//octoboot.ovh/stringfromurl/https%3A%2F%2Fwww.instagram.com%2F' +
                     iframe_data[0] + '%2F', function(html) {
                         var obj = html.match(/(window\._sharedData.*);</)
                         if (obj.length && obj.length === 2) {
