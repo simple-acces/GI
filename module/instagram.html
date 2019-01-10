@@ -55,22 +55,7 @@
         var get_instagram_media = function(id) {
             try {
                 var code = window._sharedData.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges[id].node.shortcode;
-
-                $.ajax({
-                    url: 'https://api.instagram.com/oembed/?url=https://www.instagram.com/p/' + code,
-
-                    // The name of the callback parameter, as specified by the YQL service
-                    jsonp: "callback",
-
-                    // Tell jQuery we're expecting JSONP
-                    dataType: "jsonp",
-
-
-                    // Work with the response
-                    success: function( response ) {
-                        parse_instagram_response(response)
-                    }
-                });
+                $.get('https://api.instagram.com/oembed/?url=https://www.instagram.com/p/' + code).done(parse_instagram_response)
             } catch (e) {
                 console.error('get instagram media fail', e)
             }
