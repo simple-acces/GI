@@ -3288,10 +3288,6 @@ footer a:hover {
     -webkit-transition: background-color 0.1s linear;
     -o-transition: background-color 0.1s linear;
 }
-#back-to-top:hover {
-    color: #fff;
-    background-color: #121212;
-}
 #back-to-top .icon {
     font-size: 10px;
 }

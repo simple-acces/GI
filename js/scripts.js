@@ -47,7 +47,7 @@
         Back to top button popup
         ---------------------*/
         if($(window).scrollTop() > 400){
-            $("#back-to-top").stop().animate({ bottom:'16px' },300,'easeInOutCubic')
+            $("#back-to-top").stop().animate({ bottom:'30px' },300,'easeInOutCubic')
         }
         else{
             $("#back-to-top").stop().animate({ bottom:'-50px' },300,'easeInOutCubic')
@@ -117,7 +117,7 @@
     /* -------------------
     Back to top button function
     ---------------------*/
-    $('#back-to-top,.to-top').click(function() {
+    $('.to-top').click(function() {
         $('html, body').animate({ scrollTop: 0}, 1000, 'easeInOutExpo');
         return false;
     });
