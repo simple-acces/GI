@@ -4239,3 +4239,10 @@ pre {
     background: #ffff00;
     color: black;
 }
+
+@media (max-width:800px) {
+    #lasalle iframe {
+        width: 100% !important;
+    }
+}
+
