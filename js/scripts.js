@@ -46,7 +46,7 @@
         /* -------------------
         Back to top button popup
         ---------------------*/
-        if ($(window).scrollTop() > ($('#lasalle').length ? $('#lasalle').offset().top : 0)){
+        if ($(window).scrollTop() > ($('#lasalle').length ? $('#lasalle').offset().top + 300 : 0)){
             $("#back-to-top").stop().animate({ bottom:'30px' },300,'easeInOutCubic')
         }
         else{
