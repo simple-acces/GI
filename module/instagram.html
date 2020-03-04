@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <title>Instagram</title>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -6,18 +7,20 @@
         body {
             margin: 0 8px 8px 0;
         }
+
         iframe {
             margin: 1px auto !important;
         }
     </style>
 </head>
+
 <body>
     <div id="placeholder"></div>
     <script type="text/javascript">
         var previous_width, iframe_data = []
-        var parse_instagram_response = function(resp) {
+        var parse_instagram_response = function (resp) {
             $("#placeholder").html(resp.html)
-            var wait = setInterval(function() {
+            var wait = setInterval(function () {
                 if ($("#placeholder").height() !== 0) {
                     resize()
                     clearInterval(wait)
@@ -26,7 +29,7 @@
 
         }
 
-        var resize = function() {
+        var resize = function () {
             var current_width = document.body.offsetWidth
             if (previous_width !== current_width) {
                 $(window.parent.document).find('iframe.' + iframe_data[1]).css('height', ($("#placeholder").height() + 20) + 'px')
@@ -34,25 +37,25 @@
             }
         }
 
-        var get_instagram_data = function(done) {
+        var get_instagram_data = function (done) {
             if (location.search) {
                 iframe_data = location.search.replace('?', '').split('|')
                 $.get(
                     '//octoboot.ovh/stringfromurl/https%3A%2F%2Fwww.instagram.com%2F' +
-                    iframe_data[0] + '%2F', function(html) {
+                    iframe_data[0] + '%2F', function (html) {
                         var obj = html.match(/(window\._sharedData.*);</)
                         if (obj.length && obj.length === 2) {
                             eval(obj[1])
                             done()
                         }
 
-                })
+                    })
             } else {
                 console.error('instagram module error: user name missing on location')
             }
         }
 
-        var get_instagram_media = function(id) {
+        var get_instagram_media = function (id) {
             try {
                 var code = window._sharedData.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media.edges[id].node.shortcode;
                 $.get('https://api.instagram.com/oembed/?url=https://www.instagram.com/p/' + code).done(parse_instagram_response)
@@ -63,11 +66,12 @@
 
         window.addEventListener('resize', resize)
 
-        get_instagram_data(function() {
+        get_instagram_data(function () {
             get_instagram_media(0)
         })
 
     </script>
 
 </body>
+
 </html>
