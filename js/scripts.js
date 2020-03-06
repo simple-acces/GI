@@ -28,6 +28,8 @@
     /* -------------------
     Scroll functions
     ---------------------*/
+    var bttIsMoving = false
+    const octoresa = $('iframe[src*="octoboot.ovh/plugin/octoresa"]').last()
     $(window).scroll(function(){
         parallax();
         /* -------------------
@@ -46,13 +48,19 @@
         /* -------------------
         Back to top button popup
         ---------------------*/
-        if ($(window).scrollTop() > ($('#lasalle').length ? $('#lasalle').offset().top + 300 : 0)){
-            $("#back-to-top").stop().animate({ bottom:'30px' },300,'easeInOutCubic')
-        }
-        else{
-            $("#back-to-top").stop().animate({ bottom:'-50px' },300,'easeInOutCubic')
-        }
+
     });
+    setInterval(()=> {
+        if (!bttIsMoving && $(window).scrollTop() > (octoresa.length ? octoresa.offset().top + 300 : 50)) {
+            bttIsMoving = true
+            $(".back-to-top:not(.fitness)").stop().animate({ bottom: '90px' }, 300, 'easeInOutCubic', () => bttIsMoving = false)
+            $(".back-to-top.fitness").stop().animate({ bottom: '30px' }, 300, 'easeInOutCubic', () => bttIsMoving = false)
+        }
+        else if (!bttIsMoving) {
+            bttIsMoving = false
+            $(".back-to-top").stop().animate({ bottom: '-50px' }, 300, 'easeInOutCubic', () => bttIsMoving = false)
+        }
+    }, 500)
     /*if ($(window).width() <= 992) {
         $('nav').addClass("navbar-small")
     }
