@@ -767,6 +767,30 @@ span.yellow_l {
 }
 
 /*----- Home Revolution Slider -----*/
+.webp .slide-home {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/accueilD30_SEPT18.webp");
+}
+.no-webp .slide-home {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/accueilD30_SEPT18.jpg");
+}
+.webp .slide-ninja {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/participants_ninja_games2016.webp");
+}
+.no-webp .slide-ninja {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/participants_ninja_games2016.jpg");
+}
+.webp .slide-openninja {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/remise_prix_open_ninja2016.webp");
+}
+.no-webp .slide-openninja {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/remise_prix_open_ninja2016.jpg");
+}
+.webp .slide-openkids {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/participants_openninja_kids.webp");
+}
+.no-webp .slide-openkids {
+    background-image: url("https://octoboot.ovh/temp/1550527114621/district78/uploads/participants_openninja_kids.jpg");
+}
 #home-revolution-slider  {
 	width: 100%;
 	height: 100vh;
