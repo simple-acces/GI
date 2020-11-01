@@ -262,6 +262,7 @@
         $('script[src*="google-analytics.com/analytics.js"]').remove()
         $('.g-recaptcha-bubble-arrow').parent().remove()
         $('iframe[src*="www.google.com/recaptcha/api2/bframe"]').parent().parent().remove()
+        $('.popup').css('display', 'block')
         setTimeout(done, 500)
     }
 
